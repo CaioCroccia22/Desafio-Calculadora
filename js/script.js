@@ -1,21 +1,16 @@
-document.getElementById('calcular').addEventListener('click', function() {
-    const num1 = parseInt(document.getElementById('num1').value);
-    const num2 = parseInt(document.getElementById('num2').value);
-    const operacao = document.getElementById('operacao').value;
-  
-    let resultado;
-  
-    if (operacao === 'somar') {
-      resultado = num1 + num2;
-    } else if (operacao === 'subtrair') {
-      resultado = num1 - num2;
-    } else if (operacao === 'multiplicar') {
-      resultado = num1 * num2;
-    } else if (operacao === 'dividir' && num2 !== 0) {
-      resultado = num1 / num2;
-    } else {
-      resultado = 'Erro';
-    }
-  
-    document.getElementById('resultado').textContent = resultado;
-  });
+// Selecionando os elementos
+const previousOperationText = document.querySelector("#previous-operation");
+const currentOperationText = document.querySelector("#current-operation");
+const buttons = document.querySelectorAll("#buttons-container button");
+
+class Calculator {
+
+}
+
+// 1 ) Ativar os botões
+buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const value = e.target.innerText;
+    console.log(value);
+  })
+})
