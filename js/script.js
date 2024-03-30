@@ -16,15 +16,19 @@ class Calculator {
 
   // adicionar o valor digitado (digit) para o calculator screen
   addDigit(digit){
+    // Verificar se a operação atual tem um ponto
+    if (digit === "." && this.currentOperationText.innerText.includes(".")){
     this.currentOperation = digit
     this.updateScreen()
+    }
   }
 
 
 
   // Troca os valores do calculator screen
   updateScreen(){
-    
+    // Numeros que a gente digite aparece no layout
+    this.currentOperationText.innerText += this.currentOperation
   }
 
 }
