@@ -53,11 +53,22 @@ class Calculator {
   updateScreen(operation = null, 
               operationValue = null, 
               current = null, 
-              previous = null) 
-              {
-    console.log(operationValue, current, previous, operation);
+              previous = null
+  )  {
+
+    if(operationValue === null){
     // Numeros que a gente digite aparece no layout
     this.currentOperationText.innerText += this.currentOperation;
+  }
+    else{
+      // Check se o valor é zero
+      if(previous === 0){
+        operationValue = current;
+      }
+      // Joga o resultado da operação(current value) para cima(previous)
+      this.previousOperationText.innerText = `${operationValue} ${operation}`
+      this.currentOperationText = "";
+    }
   }
 
 }
