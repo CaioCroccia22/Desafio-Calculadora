@@ -28,12 +28,12 @@ class Calculator {
   processOperation(operation) {
 
     // Aqui foi pego os dois valores e passado para conversão numérica
-    let operationValue
-    let previous = +this.previousOperationText.innerText;
-    let current = +this.currentOperationText.innerText;
+    let operationValue;
+    const previous = +this.previousOperationText.innerText;
+    const current = +this.currentOperationText.innerText;
 
 
-    switch(operation){
+    switch (operation) {
 
       case "+":
         operation = previous + current;
@@ -55,7 +55,7 @@ class Calculator {
               current = null, 
               previous = null
   )  {
-
+    console.log(operationValue, operation, current, previous)
     if(operationValue === null){
     // Numeros que a gente digite aparece no layout
     this.currentOperationText.innerText += this.currentOperation;
@@ -67,7 +67,7 @@ class Calculator {
       }
       // Joga o resultado da operação(current value) para cima(previous)
       this.previousOperationText.innerText = `${operationValue} ${operation}`
-      this.currentOperationText = "";
+      this.currentOperationText.innerText = "";
     }
   }
 
@@ -89,7 +89,7 @@ buttons.forEach((btn) => {
       calc.addDigit(value);
     } else {
       // Se não conseguir fazer a conversão para numero, significa que é uma operação
-      calc.processOperation("Op: " + value);
+      calc.processOperation(value);
     }
 
 
