@@ -29,7 +29,7 @@ class Calculator {
 
     // Aqui foi pego os dois valores e passado para conversão numérica
     let operationValue;
-    const previous = +this.previousOperationText.innerText;
+    const previous = +this.previousOperationText.innerText.split(" ")[0];
     const current = +this.currentOperationText.innerText;
 
 
@@ -37,6 +37,18 @@ class Calculator {
 
       case "+":
         operation = previous + current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+        case "-":
+        operation = previous - current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+        case "/":
+        operation = previous / current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+        case "*":
+        operation = previous * current;
         this.updateScreen(operationValue, operation, current, previous);
         break;
       default:
