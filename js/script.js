@@ -25,8 +25,15 @@ class Calculator {
   }
 
   // Metodo para executar todas as operações da calculadora
-  processOperation(operation) {
-
+  processOperation(operationValue) {
+    // Verifica se o current value é vazio
+    if(this.currentOperationText.innerText === ""){
+      if(this.previousOperationText.innerText !== ""){
+        // Mudança de operação
+        this.changeOperation(operation);
+      }
+      return;
+    }
     // Aqui foi pego os dois valores e passado para conversão numérica
     let operationValue;
     const previous = +this.previousOperationText.innerText.split(" ")[0];
@@ -36,21 +43,24 @@ class Calculator {
     switch (operation) {
 
       case "+":
-        operation = previous + current;
-        this.updateScreen(operationValue, operation, current, previous);
-        break;
+          operationValue = previous + current;
+          this.updateScreen(operationValue, operation, current, previous);
+          break;
         case "-":
-        operation = previous - current;
-        this.updateScreen(operationValue, operation, current, previous);
-        break;
+          operationValue = previous - current;
+          this.updateScreen(operationValue, operation, current, previous);
+          break;
         case "/":
-        operation = previous / current;
-        this.updateScreen(operationValue, operation, current, previous);
-        break;
+          operationValue = previous / current;
+          this.updateScreen(operationValue, operation, current, previous);
+          break;
         case "*":
-        operation = previous * current;
-        this.updateScreen(operationValue, operation, current, previous);
-        break;
+          operationValue = previous * current;
+          this.updateScreen(operationValue, operation, current, previous);
+          break;
+        case "DEL": 
+          this.processDelOperator();
+          break;
       default:
         return;
 
@@ -82,6 +92,23 @@ class Calculator {
       this.currentOperationText.innerText = "";
     }
   }
+
+// Troca da operação matemática
+changeOperation(operation){
+  const mathOperation = ["*", "/", "+", "-"]
+
+  if (!mathOperation.includes(operation)){
+    return;
+  }
+
+  this.previousOperationText.innerText = this.previousOperationText.innerText.slice(0, -1) + operation;
+}
+
+
+processDelOperator(){
+  this.currentOperationText.innerText = this.currentOperationText.innerText.slice()
+}
+
 
 }
 
