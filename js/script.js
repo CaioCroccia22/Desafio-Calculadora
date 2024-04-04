@@ -27,7 +27,7 @@ class Calculator {
   // Metodo para executar todas as operações da calculadora
   processOperation(operation) {
     // Verifica se o current value é vazio
-    if(this.currentOperationText.innerText === ""){
+    if(this.currentOperationText.innerText === "" && operation !== "C"){
       if(this.previousOperationText.innerText !== ""){
         // Mudança de operação
         this.changeOperation(operation);
@@ -66,6 +66,9 @@ class Calculator {
           break;
         case  "CE":
           this.processResetOperator();
+          break;
+        case  "=":
+          this.processEqualsOperator();
           break;
       default:
         return;
@@ -124,6 +127,10 @@ processClearOperator(){
 processResetOperator(){
   this.currentOperationText.innerText = "";
   this.previousOperationText.innerText = "";
+}
+
+processEqualsOperator(){
+  const operation = previousOperationText.innerText.split(" ")[1];
 }
 
 }
