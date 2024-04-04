@@ -61,6 +61,12 @@ class Calculator {
         case "DEL": 
           this.processDelOperator();
           break;
+        case "C": 
+          this.processClearOperator();
+          break;
+        case  "CE":
+          this.processResetOperator();
+          break;
       default:
         return;
 
@@ -110,6 +116,15 @@ processDelOperator(){
     this.currentOperationText.innerText.slice(0, -1);
 }
 
+processClearOperator(){
+  this.currentOperationText.innerText = "";
+}
+
+
+processResetOperator(){
+  this.currentOperationText.innerText = "";
+  this.previousOperationText.innerText = "";
+}
 
 }
 
