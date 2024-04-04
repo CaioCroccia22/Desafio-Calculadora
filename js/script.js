@@ -25,7 +25,7 @@ class Calculator {
   }
 
   // Metodo para executar todas as operações da calculadora
-  processOperation(operationValue) {
+  processOperation(operation) {
     // Verifica se o current value é vazio
     if(this.currentOperationText.innerText === ""){
       if(this.previousOperationText.innerText !== ""){
@@ -78,7 +78,7 @@ class Calculator {
               previous = null
   )  {
     console.log(operationValue, operation, current, previous)
-    if(operationValue === null){
+    if(operation === null){
     // Numeros que a gente digite aparece no layout
     this.currentOperationText.innerText += this.currentOperation;
   }
@@ -106,7 +106,8 @@ changeOperation(operation){
 
 
 processDelOperator(){
-  this.currentOperationText.innerText = this.currentOperationText.innerText.slice()
+  this.currentOperationText.innerText = 
+    this.currentOperationText.innerText.slice(0, -1);
 }
 
 
