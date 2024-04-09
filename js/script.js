@@ -130,7 +130,7 @@ processResetOperator(){
 }
 
 processEqualsOperator(){
-  const operation = previousOperationText.innerText.split(" ")[1];
+  const operation = this.previousOperationText.innerText.split(" ")[1];
 }
 
 }
